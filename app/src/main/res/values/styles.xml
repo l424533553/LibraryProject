@@ -9,20 +9,5 @@
     </style>
 
 
-    <style name="my_custom_primary_color">
-        <item name="android:colorPrimary" tools:targetApi="lollipop">@color/md_red_200</item>
-        <item name="colorPrimary">@color/md_red_200</item>
-    </style>
-
-    <style name="my_custom_primary_dark_color">
-        <item name="android:colorPrimaryDark" tools:targetApi="lollipop">@color/md_red_400</item>
-        <item name="colorPrimaryDark">@color/md_red_400</item>
-    </style>
-
-    <style name="my_custom_accent_color">
-        <item name="android:colorAccent" tools:targetApi="lollipop">@color/md_yellow_700</item>
-        <item name="colorAccent">@color/md_yellow_700</item>
-    </style>
-
 
 </resources>

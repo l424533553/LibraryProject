@@ -24,6 +24,7 @@ import com.xuanyuan.library.entity.Deviceinfo;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.Enumeration;
@@ -51,7 +52,6 @@ public class SystemInfoUtils {
                 return mac;
             }
             WifiManager wm = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-
             if (wm != null) {
                 WifiInfo wifiInfo = wm.getConnectionInfo();
                 if (wifiInfo != null) {
@@ -93,7 +93,29 @@ public class SystemInfoUtils {
     }
 
     /**
-     * @return  获取当前的线程id
+     * 获得本机的IP地址
+     */
+    public String getLocalIpAddress() {
+        try {
+            for (Enumeration<NetworkInterface> en = NetworkInterface
+                    .getNetworkInterfaces(); en.hasMoreElements(); ) {
+                NetworkInterface intf = en.nextElement();
+                for (Enumeration<InetAddress> enumIpAddr = intf
+                        .getInetAddresses(); enumIpAddr.hasMoreElements(); ) {
+                    InetAddress inetAddress = enumIpAddr.nextElement();
+                    if (!inetAddress.isLoopbackAddress()) {
+                        return inetAddress.getHostAddress();
+                    }
+                }
+            }
+        } catch (SocketException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * @return 获取当前的线程id
      */
     private long getCurrentThreadId() {
         // 得到当前的主线程id

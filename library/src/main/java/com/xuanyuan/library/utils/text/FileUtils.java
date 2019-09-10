@@ -10,6 +10,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -49,6 +50,19 @@ public class FileUtils {
      */
     public String getDownloadDir(Context context) {
         return getDir(TYPE_DOWNLOAD_DIR, context);
+    }
+
+    private String loadReaderAsString(String fileName ) throws Exception {
+        FileReader reader = new FileReader(fileName);
+        StringBuilder builder = new StringBuilder();
+        char[] buffer = new char[4096];
+        int readLength = reader.read(buffer);
+        while (readLength >= 0) {
+            builder.append(buffer, 0, readLength);
+            readLength = reader.read(buffer);
+        }
+        reader.close();
+        return builder.toString();
     }
 
 

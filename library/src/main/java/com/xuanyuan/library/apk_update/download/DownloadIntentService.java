@@ -71,6 +71,7 @@ public class DownloadIntentService extends IntentService implements DownloadCall
 //            }
 //        }
 
+        //
         remoteViews = new RemoteViews(getPackageName(), R.layout.notify_download);
         remoteViews.setProgressBar(R.id.pb_progress, 100, progress, false);
         remoteViews.setTextViewText(R.id.tv_progress, "已下载" + progress + "%");

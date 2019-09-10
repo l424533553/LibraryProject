@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
 
+
 import com.xuanyuan.library.R;
 
 import java.text.DecimalFormat;
@@ -19,14 +20,14 @@ import java.text.DecimalFormat;
  * author: luofaxin
  * date： 2018/11/1 0001.
  * email:424533553@qq.com
- * describe:
+ * describe: 圆盘图标
  * 圆盘计步图表  ,可以自定义要显示的内容  ，操作和正常的控件一样
  * 使用   color_progress_view.update(stepCount, 1000)  可以正常更新
  *
  */
 public class CircleProgressBar extends View {
 
-    private final RectF mWheelRect = new RectF();
+    private RectF mWheelRect = new RectF();
     private Paint mDefaultWheelPaint;
     private Paint mFinishWheelPaint;
     private Paint mCenterWheelPaint;
@@ -38,30 +39,30 @@ public class CircleProgressBar extends View {
     private int mMaxStepNum;// 默认最大步数
     private float mStepY;
     private float mTargetY;
-    private final DecimalFormat mDecimalFormat = new DecimalFormat("#.0");// 格式为保留小数点后一位
+    private DecimalFormat mDecimalFormat = new DecimalFormat("#.0");// 格式为保留小数点后一位
     public static String GOAL_STEP;
     public static String PERCENT;
-    private final Context context;
+    private Context context;
 
     public CircleProgressBar(Context context) {
         super(context);
-        init(null, 0);
+        init();
         this.context = context;
     }
 
     public CircleProgressBar(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init(attrs, 0);
+        init();
         this.context = context;
     }
 
     public CircleProgressBar(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        init(attrs, defStyle);
+        init();
         this.context = context;
     }
 
-    private void init(AttributeSet attrs, int defStyle) {
+    private void init() {
         mFinishWheelPaint = new Paint();
         mFinishWheelPaint.setColor(Color.rgb(100, 113, 205));
         mFinishWheelPaint.setStyle(Paint.Style.STROKE);// 空心
@@ -131,6 +132,8 @@ public class CircleProgressBar extends View {
         mFinishWheelPaint.setShader(sweepGradient);
     }
 
+
+
     /**
      * 测量
      *
@@ -150,7 +153,7 @@ public class CircleProgressBar extends View {
         mTitlePaint.setTextSize(getTextScale(60, min));
         mStepPaint.setTextSize(getTextScale(120, min));
         mTargetPaint.setTextSize(getTextScale(40, min));
-        float mTitleY = getTextScale(170, min);
+//        float mTitleY = getTextScale(170, min);
         mStepY = getTextScale(300, min);
         mTargetY = getTextScale(380, min);
         mFinishWheelPaint.setStrokeWidth(mCircleStrokeWidth);
@@ -181,7 +184,7 @@ public class CircleProgressBar extends View {
                 mPercent = 100.0f;
             }
             PERCENT = String.valueOf(mPercent);
-            mSweepAnglePer = (float)(mStepNum * 360 / mMaxStepNum);
+            mSweepAnglePer = (float) (mStepNum * 360) / mMaxStepNum;
             mCurrStepNum = mStepNum;
 //			}
 

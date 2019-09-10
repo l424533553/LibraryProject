@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ArrLibrary</string>
+
+    <string name="string_confirm">确&#160;认</string>
+    <string name="stringLauch">登&#160;录</string>
+    <string name="string_cancel">取&#160;消</string>
+
+    <string name="string_cancel_txt">取&#160;&#160;&#160;消</string>
+</resources>

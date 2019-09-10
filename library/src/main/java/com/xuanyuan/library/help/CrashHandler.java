@@ -83,7 +83,6 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
      * 保证只有一个CrashHandler实例
      */
     private CrashHandler() {
-
     }
 
     /**
@@ -193,12 +192,15 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
             TreeSet<String> sortedFiles = new TreeSet<>(Arrays.asList(crFiles));
             for (String fileName : sortedFiles) {
                 File cr = new File(ctx.getFilesDir(), fileName);
-                // 发送信息到服务器
+                postReport(cr);
                 cr.delete();// 删除已发送的报告
             }
         }
     }
 
+    private void postReport(File file) {
+        // TODO 发送错误报告到服务器
+    }
 
     /**
      * 获取错误报告文件名

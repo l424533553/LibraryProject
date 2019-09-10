@@ -30,11 +30,11 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     /*  基础依赖  ****/
-    // colorful  框架进行色彩改变的一款软件
-    implementation 'com.github.garretyoder:Colorful:2.3.4'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
     implementation project(path: ':library')
 
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation project(path: ':srclibrary')
 }
 repositories {
     mavenCentral()

@@ -20,7 +20,7 @@ import android.view.WindowManager;
  * describe:
  */
 public class ScrollTextView extends AppCompatTextView implements View.OnClickListener {
-    public final static String TAG = AutoScrollTextView.class.getSimpleName();
+    public final static String TAG = ScrollTextView.class.getSimpleName();
 
     private float textLength = 0f;//文本长度
     private float step = 0f;//文字的横坐标

@@ -14,6 +14,7 @@ import android.widget.Toast;
  */
 public class MyToast {
 
+    //
     private static Toast toast;
 
     /**

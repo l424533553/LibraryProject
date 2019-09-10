@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="colorgray">#EEEEEE</color>
+    <color name="theme_color_primary">#fb7299</color>
+    <color name="theme_color_primary_dark">#b85671</color>
+    <color name="theme_color_primary_trans">#99f0486c</color>
+
+    <color name="green_008B00">#008B00</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000</color>
+
+
+    <!-- 文字被选中的颜色 -->
+    <color name="night_text_checked">#F0AB4E</color>
+
+    <!--  晚上文字的颜色  -->
+    <color name="night_text">#9E9E9E</color>
+
+    <color name="bg_include_title">#9FC93B</color>
+
+    <color name="red">#FF0000</color>
+
+    <color name="transparent">#00000000</color>
+
+    <color name="base_line_gray">#ffe6e6e6</color>
+    <color name="base_line_green">#ff00a352</color>
+
+
+    <!--颜色-->
+    <color name="color_black">#000000</color>
+    <color name="color_black_text">#000223</color>
+    <color name="color_red">#E72816</color>
+    <color name="color_gray">#BCBCBC</color>
+    <color name="color_gray_text">#7F7F7F</color>
+    <color name="color_gray2_text">#999999</color>
+    <color name="color_white">#ffffff</color>
+    <color name="color_pink">#ff00ff</color>
+    <color name="color_item_background_1">#D7E4BC</color>
+    <color name="color_item_background_2">#EAF1DD</color>
+    <color name="color_listview_background">#E8F5FC</color>
+    <color name="color_blue_light">#1BA7DA</color>
+    <color name="color_green_light">#1bda74</color>
+    <color name="color_blue_dark">#1FBAF3</color>
+    <color name="color_blue_dark_deep">#34619D</color>
+    <color name="color_blue_light_text">#5CA8B8</color>
+    <color name="color_blue_dark_text">#879EC0</color>
+    <color name="color_deep_brown">#403F3D</color>
+
+    <!--zxing  中的颜色-->
+    <color name="zxing_result_view">#b0000000</color>
+    <color name="zxing_viewfinder_mask">#60000000</color>
+    <color name="zxing_possible_result_points">#c0ffff00</color>
+
+
+    <color name="textcolor_black">#ff3e3e39</color>
+
+
+    <color name="title_color_dark">#fff</color>
+    <color name="message_color_dark">#fff</color>
+
+
+    <color name="text_primary_color">#2d2d2d</color>
+    <color name="window_background">#eaeaea</color>
+
+    <color name="black_light">#333333</color>
+
+
+    <color name="white_trans">#99ffffff</color>
+
+    <color name="gray">#bbbbbb</color>
+    <color name="gray_dark">#999999</color>
+    <color name="gray_trans">#44999999</color>
+    <color name="gray_light">#dcdcdc</color>
+
+    <!-- theme color -->
+    <color name="pink">#fb7299</color>
+    <color name="pink_dark">#b85671</color>
+    <color name="pink_trans">#99f0486c</color>
+
+    <color name="blue">#2196F3</color>
+    <color name="blue_dark">#1565C0</color>
+    <color name="blue_trans">#B41A78C3</color>
+
+    <color name="purple">#673AB7</color>
+    <color name="purple_dark">#311B92</color>
+    <color name="purple_trans">#99673AB7</color>
+
+    <color name="green">#4CAF50</color>
+    <color name="green_dark">#2E7D32</color>
+    <color name="green_trans">#994CAF50</color>
+
+    <color name="green_light">#8BC34A</color>
+    <color name="green_light_dark">#558B2F</color>
+    <color name="green_light_trans">#998BC34A</color>
+
+    <color name="yellow">#FDD835</color>
+    <color name="yellow_dark">#FBC02D</color>
+    <color name="yellow_trans">#99FDD835</color>
+
+    <color name="orange">#FF9800</color>
+    <color name="orange_dark">#EF6C00</color>
+    <color name="orange_trans">#99FF9800</color>
+
+
+    <color name="red_dark">#C62828</color>
+    <color name="red_trans">#99F44336</color>
+</resources>

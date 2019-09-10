@@ -79,6 +79,7 @@ dependencies {
     implementation 'com.github.f0ris.sweetalert:library:1.5.1'
     /*  微信 生成二维码  jar包 */
     implementation 'com.google.zxing:core:3.3.3'
+    implementation 'com.github.garretyoder:Colorful:2.3.4'
 
 }
 repositories {

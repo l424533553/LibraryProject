@@ -1,13 +1,17 @@
 package com.xuanyuan.library.help;
 
 import android.app.Activity;
+import android.content.ComponentName;
+import android.content.Context;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import static android.content.Context.ACTIVITY_SERVICE;
+
 /**
- * Created by Longer on 2016/11/1.
+ * Activity 控制管理器
  */
 public class ActivityController {
 
@@ -16,6 +20,21 @@ public class ActivityController {
 
     public static void addActivity(Activity activity) {
         activities.add(activity);
+    }
+
+    /**
+     *
+     * @return  获取顶部的 ActivityName
+     */
+    public static String getTopActivityName(Context context) {
+        android.app.ActivityManager am = (android.app.ActivityManager) context.getSystemService(ACTIVITY_SERVICE);
+        if (am != null) {
+            ComponentName cn = am.getRunningTasks(1).get(0).topActivity;
+            if (cn != null) {
+                return cn.getClassName();
+            }
+        }
+        return null;
     }
 
     public static void removeActivity(Activity activity) {
@@ -38,7 +57,6 @@ public class ActivityController {
 
     /**
      * 安全结束Activity的方法
-     *
      * @param whenTheArrayListFinish 借口回调,防止未完成遍历的情况就删除或者增加集合操作
      */
     public static void finishAllSafe(WhenTheArrayListFinish whenTheArrayListFinish) {
