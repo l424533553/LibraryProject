@@ -62,7 +62,7 @@ public abstract class MyBaseApplication extends MultiDexApplication implements I
     SystemUtils systemUtils = new SystemUtils();
 
     /**
-     * 
+     * 使用
      */
     @Override
     public void onCreate() {
@@ -94,8 +94,6 @@ public abstract class MyBaseApplication extends MultiDexApplication implements I
             BuglyUPHelper buglyUPHelper = new BuglyUPHelper(this, false);
             buglyUPHelper.startBugly();
         }
-
-
     }
 
 
