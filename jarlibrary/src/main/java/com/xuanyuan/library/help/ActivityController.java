@@ -1,6 +1,7 @@
 package com.xuanyuan.library.help;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.ComponentName;
 import android.content.Context;
 
@@ -36,6 +37,7 @@ public class ActivityController {
         }
         return null;
     }
+
 
     public static void removeActivity(Activity activity) {
         if (!mIsFinishAll) {

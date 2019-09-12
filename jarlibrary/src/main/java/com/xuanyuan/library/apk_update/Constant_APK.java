@@ -3,6 +3,7 @@ package com.xuanyuan.library.apk_update;
 
 import android.content.Context;
 import android.os.Environment;
+import com.xuanyuan.library.base.application.MyBaseApplication;
 
 
 /**
@@ -11,12 +12,14 @@ import android.os.Environment;
  * 功能描述 ：
  */
 
-public class Constant_APK {
+public interface Constant_APK {
 
     //    String APP_ROOT_PATH = Environment.getExternalStorageDirectory().getAbsolutePath() + "/";
-    public static final String DOWNLOAD_DIR = "/downlaod/";
+    String APP_ROOT_PATH = Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + MyBaseApplication.getInstance().getPackageName();
 
-    public static String getRootPath(Context context) {
-        return Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + context.getPackageName();
-    }
+    String DOWNLOAD_DIR = "/downlaod/";
+
+//    public static String getRootPath(Context context) {
+//        return Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + context.getPackageName();
+//    }
 }

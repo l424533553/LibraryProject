@@ -21,6 +21,7 @@ import static android.app.Notification.VISIBILITY_SECRET;
  * 邮件：424533553@qq.com
  * 说明： 消息通知栏的创建   ，注意 26及以后的创建特殊性
  */
+//TODO  待搞懂它的使用
 public class NotificationHelpter {
 
     private final Context context;

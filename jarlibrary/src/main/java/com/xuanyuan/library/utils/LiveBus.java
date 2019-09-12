@@ -3,7 +3,6 @@ package com.xuanyuan.library.utils;
 import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.Observer;
 import android.support.annotation.NonNull;
-
 import com.jeremyliao.liveeventbus.LiveEventBus;
 
 /**
@@ -14,12 +13,16 @@ import com.jeremyliao.liveeventbus.LiveEventBus;
  */
 public class LiveBus {
 
-//    public static LiveEventBus.Observable observe(String key, Class type) {
-//        return LiveEventBus.get().with(key, type);
-//    }
+  public static LiveEventBus.Observable observe(String key, Class type) {
+        return LiveEventBus.get().with(key, type);
+  }
 
     public static <T> void post(String key, Class<T> type, T msg) {
         LiveEventBus.get().with(key, type).post(msg);
+    }
+
+    public static <T> void post(String key, Class<T> type, T msg, long delay) {
+        LiveEventBus.get().with(key, type).postDelay(msg, delay);
     }
 
     public static <T> void observe(String key, Class<T> type, @NonNull LifecycleOwner owner, @NonNull Observer<T> observer) {

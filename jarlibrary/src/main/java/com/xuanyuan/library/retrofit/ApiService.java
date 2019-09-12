@@ -17,7 +17,6 @@ public interface ApiService {
 //    String BASE_URL = "http://dldir1.qq.com";
 
     String BASE_URL = "http://wap.dl.pinyin.sogou.com";
-
     @Streaming
     @GET
     Observable<ResponseBody> executeDownload(@Header("Range") String range, @Url() String url);

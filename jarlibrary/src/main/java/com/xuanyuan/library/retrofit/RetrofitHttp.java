@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.xuanyuan.library.apk_update.Constant_APK;
 import com.xuanyuan.library.apk_update.download.JsDownloadInterceptor;
+import com.xuanyuan.library.base.application.MyBaseApplication;
 import com.xuanyuan.library.utils.storage.MyPreferenceUtils;
 
 import java.io.File;
@@ -26,29 +27,25 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitHttp {
 
     private static final int DEFAULT_TIMEOUT = 10;
-    private static final String TAG = "RetrofitClient";
-
     private final ApiService apiService;
     private static RetrofitHttp sIsntance;
-
-    private final Context appContext;
 
     /**
      * @return 获取单例对象
      */
-    public static RetrofitHttp getInstance(Context context) {
+    public static RetrofitHttp getInstance( ) {
         if (sIsntance == null) {
             synchronized (RetrofitHttp.class) {
                 if (sIsntance == null) {
-                    sIsntance = new RetrofitHttp(context);
+                    sIsntance = new RetrofitHttp();
                 }
             }
         }
         return sIsntance;
     }
 
-    private RetrofitHttp(Context context) {
-        this.appContext = context.getApplicationContext();
+    private RetrofitHttp( ) {
+//        this.appContext = context.getApplicationContext();
         //TODO 请求 拦截器待完善
         JsDownloadInterceptor mInterceptor = new JsDownloadInterceptor(null);
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
@@ -67,11 +64,11 @@ public class RetrofitHttp {
         apiService = retrofit.create(ApiService.class);
     }
 
-    private DownloadCallBack downloadCallback;
-
-    public void setDownloadCallback(DownloadCallBack downloadCallback) {
-        this.downloadCallback = downloadCallback;
-    }
+//    private DownloadCallBack downloadCallback;
+//
+//    public void setDownloadCallback(DownloadCallBack downloadCallback) {
+//        this.downloadCallback = downloadCallback;
+//    }
 
     /**
      * 文件先下载的 方法 支持进度条的方式
@@ -79,7 +76,7 @@ public class RetrofitHttp {
     public void downloadFile(final long range, final String url, final String fileName, final DownloadCallBack downloadCallback) {
         downloadCallback.onStartDownload();//开始下载了
         //断点续传时请求的总长度
-        File file = new File(Constant_APK.getRootPath(appContext) + Constant_APK.DOWNLOAD_DIR, fileName);
+        File file = new File(Constant_APK.APP_ROOT_PATH + Constant_APK.DOWNLOAD_DIR, fileName);
         String totalLength = "-";
         if (file.exists()) {
             totalLength += file.length();
@@ -106,10 +103,9 @@ public class RetrofitHttp {
                         try {
                             byte[] buf = new byte[2048];
                             int len;
-
                             responseLength = responseBody.contentLength();
                             inputStream = responseBody.byteStream();
-                            String filePath = Constant_APK.getRootPath(appContext) + Constant_APK.DOWNLOAD_DIR;
+                            String filePath = Constant_APK.APP_ROOT_PATH + Constant_APK.DOWNLOAD_DIR;
                             File file = new File(filePath, fileName);
                             File dir = new File(filePath);
                             if (!dir.exists()) {
@@ -138,7 +134,7 @@ public class RetrofitHttp {
                             e.printStackTrace();
                         } finally {
                             try {
-                                MyPreferenceUtils.getSp(appContext).edit().putLong(url, total).apply();
+                                MyPreferenceUtils.getSp(MyBaseApplication.getInstance()).edit().putLong(url, total).apply();
                                 if (randomAccessFile != null) {
                                     randomAccessFile.close();
                                 }
@@ -158,7 +154,6 @@ public class RetrofitHttp {
 
                     @Override
                     public void onComplete() {
-
                     }
                 });
     }

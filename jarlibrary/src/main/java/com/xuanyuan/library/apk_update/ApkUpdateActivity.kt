@@ -7,15 +7,14 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
 import android.widget.Toast
+import com.xuanyuan.jarlibrary.R
 import com.xuanyuan.library.MyToast
-import library.R
 import com.xuanyuan.library.apk_update.download.DownloadIntentService
 
 /**
  * APK 更新测试
  *
  */
-@Suppress("DEPRECATION")
 class ApkUpdateActivity : AppCompatActivity() {
     private val downLoadApkId = 12
     override fun onCreate(savedInstanceState: Bundle?) {

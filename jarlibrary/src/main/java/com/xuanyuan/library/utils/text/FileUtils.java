@@ -52,7 +52,7 @@ public class FileUtils {
         return getDir(TYPE_DOWNLOAD_DIR, context);
     }
 
-    private String loadReaderAsString(String fileName ) throws Exception {
+    private String loadReaderAsString(String fileName) throws Exception {
         FileReader reader = new FileReader(fileName);
         StringBuilder builder = new StringBuilder();
         char[] buffer = new char[4096];
@@ -256,7 +256,7 @@ public class FileUtils {
     /**
      * read file
      *
-     * @param filePath
+     * @param filePath    文件路径
      * @param charsetName The name of a supported
      * @return if file not exist, return null, else return content of file
      */
@@ -721,8 +721,8 @@ public class FileUtils {
     /**
      * move file
      *
-     * @param sourceFilePath
-     * @param destFilePath
+     * @param sourceFilePath 资源文件路径
+     * @param destFilePath   目标文件路径
      */
     public void moveFile(String sourceFilePath, String destFilePath) {
         if (TextUtils.isEmpty(sourceFilePath) || TextUtils.isEmpty(destFilePath)) {
@@ -756,5 +756,23 @@ public class FileUtils {
         }
     }
 
+
+    private static synchronized Properties getPro(Context context, InputStreamReader in) {
+        Properties pro = null;
+        try {
+            in = new InputStreamReader(context.getAssets().open("currency.properties"));
+            pro = new Properties();
+            pro.load(in);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                in.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return pro;
+    }
 
 }

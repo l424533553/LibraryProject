@@ -18,11 +18,10 @@ import com.xuanyuan.library.retrofit.RetrofitHttp;
 
 import java.io.File;
 
-
 /**
- * 创建时间：2018/3/7
+ * 创建时间：2019/9/12
  * 编写人：damon
- * 功能描述 ：
+ * 功能描述 ： 下载IntentService
  */
 public class DownloadIntentService extends IntentService implements DownloadCallBack {
 
@@ -34,7 +33,10 @@ public class DownloadIntentService extends IntentService implements DownloadCall
         super("InitializeService");
     }
 
-
+    @Override
+    public void onCreate() {
+        super.onCreate();
+    }
 
     @Override
     public int onStartCommand(@Nullable Intent intent, int flags, int startId) {
@@ -47,17 +49,17 @@ public class DownloadIntentService extends IntentService implements DownloadCall
 
     @Override
     protected void onHandleIntent(@Nullable Intent intent) {
-       if(intent==null){
-           return;
-       }
-       if(intent.getExtras()==null){
-           return;
-       }
+        if (intent == null) {
+            return;
+        }
+        if (intent.getExtras() == null) {
+            return;
+        }
         final String downloadUrl = intent.getExtras().getString("download_url");
         downloadId = intent.getExtras().getInt("download_id");
         final String mDownloadFileName = intent.getExtras().getString("download_file");
 
-        file = new File(Constant_APK.getRootPath(getApplicationContext()) + Constant_APK.DOWNLOAD_DIR + mDownloadFileName);
+        file = new File(Constant_APK.APP_ROOT_PATH + Constant_APK.DOWNLOAD_DIR + mDownloadFileName);
         final long range = 0;
         int progress = 0;
 
@@ -85,7 +87,7 @@ public class DownloadIntentService extends IntentService implements DownloadCall
         new Thread(new Runnable() {
             @Override
             public void run() {
-                RetrofitHttp.getInstance(getApplicationContext()).downloadFile(range, downloadUrl, mDownloadFileName, DownloadIntentService.this);
+                RetrofitHttp.getInstance().downloadFile(range, downloadUrl, mDownloadFileName, DownloadIntentService.this);
             }
         }).start();
 

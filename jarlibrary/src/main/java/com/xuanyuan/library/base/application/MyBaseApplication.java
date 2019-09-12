@@ -32,7 +32,9 @@ import java.util.concurrent.Executors;
  */
 @SuppressLint("Registered")
 public abstract class MyBaseApplication extends MultiDexApplication implements IConfig {
-    protected Context context;
+
+    @SuppressLint("StaticFieldLeak")
+    protected static Context context;
     protected boolean DEBUG_MODE = false;
     //  线程池  记得要关闭
     protected ExecutorService threadPool;
@@ -47,7 +49,7 @@ public abstract class MyBaseApplication extends MultiDexApplication implements I
         return threadPool;
     }
 
-    public Context getContext() {
+    public static Context getInstance() {
         return context;
     }
 
@@ -67,7 +69,7 @@ public abstract class MyBaseApplication extends MultiDexApplication implements I
     @Override
     public void onCreate() {
         super.onCreate();
-        this.context = this;
+        context = this;
         isDebugMode();
         threadPool = Executors.newFixedThreadPool(5);
         singleThread = Executors.newSingleThreadExecutor();
